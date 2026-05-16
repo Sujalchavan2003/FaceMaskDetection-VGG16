@@ -364,7 +364,7 @@ with left:
 
         st.image(
             image,
-            use_container_width=True
+            use_column_width=True
         )
 
     else:
