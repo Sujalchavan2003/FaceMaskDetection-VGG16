@@ -1,7 +1,9 @@
 import streamlit as st
 import numpy as np
-from tensorflow.keras.models import load_model
 from PIL import Image
+import gdown
+import os
+from tensorflow.keras.models import load_model
 
 # =========================================================
 # PAGE CONFIG
@@ -14,10 +16,24 @@ st.set_page_config(
 )
 
 # =========================================================
+# DOWNLOAD MODEL FROM GOOGLE DRIVE
+# =========================================================
+
+MODEL_PATH = "facemask_VGG16.h5"
+
+file_id = "1-RQmYSJJzlIROku6iexXo8Ntt1pi769b"
+
+url = f"https://drive.google.com/uc?id={file_id}"
+
+if not os.path.exists(MODEL_PATH):
+    with st.spinner("Downloading AI Model... Please wait ⏳"):
+        gdown.download(url, MODEL_PATH, quiet=False)
+
+# =========================================================
 # LOAD MODEL
 # =========================================================
 
-model = load_model("facemask_VGG16.h5")
+model = load_model(MODEL_PATH)
 
 # =========================================================
 # CUSTOM CSS
