@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Face Detection</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div class="tag">
+            <div class="dot"></div>
+            AI Powered Face Detection
+        </div>
+
+        <h1>
+            Real-Time
+            <span class="highlight">Face Detection</span>
+        </h1>
+
+        <p>
+            Upload images and detect faces using Deep Learning,
+            Computer Vision and VGG16 model.
+        </p>
+
+        <form
+            action="/predict"
+            method="POST"
+            enctype="multipart/form-data"
+            class="upload-box"
+        >
+
+            <input type="file" name="file" required>
+
+            <br>
+
+            <button type="submit">
+                Upload & Detect
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <h2>Detection Preview</h2>
+
+        {% if image_path %}
+
+        <img
+            src="{{ image_path }}"
+            class="preview"
+        >
+
+        {% else %}
+
+        <div class="empty-box">
+            Uploaded Image Preview
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
