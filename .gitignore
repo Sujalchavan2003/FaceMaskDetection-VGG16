@@ -1,3 +1,19 @@
+# Model Files
 *.h5
+
+# Python Cache
 __pycache__/
+
+# Notebook Checkpoints
 .ipynb_checkpoints/
+
+# Environment
+venv/
+.env
+
+# Uploaded Images
+static/uploads/*
+
+# OS Files
+.DS_Store
+Thumbs.db
